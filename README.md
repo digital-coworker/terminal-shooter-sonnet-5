@@ -4,8 +4,6 @@ A 16-bit style vertical shoot-'em-up that runs entirely in your terminal — Pyt
 
 ![gameplay demo](screenshots/demo.gif)
 
-**[▶ Watch it play on GitHub Pages](https://digital-coworker.github.io/terminal-shooter-sonnet-5/)**
-
 ## Play
 
 ```bash
@@ -75,3 +73,10 @@ Edit the note sequences in `tools/gen_music.py` (`"A4"`, `"C#5"`, …) and rerun
 ## License
 
 MIT
+
+---
+
+A landing page with an embedded, real recorded playthrough lives in
+[`docs/index.html`](docs/index.html) — enable GitHub Pages
+(Settings → Pages → Deploy from a branch → `main` / `/docs`) to serve it,
+or just open the file locally.
