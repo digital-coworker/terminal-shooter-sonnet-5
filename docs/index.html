@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terminal Shooter</title>
+<meta name="description" content="A 16-bit style vertical shoot-'em-up that runs in your terminal.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.6.3/dist/bundle/asciinema-player.css">
+<style>
+  :root {
+    --bg: #05070a;
+    --fg: #d8f2e0;
+    --accent: #39ff9f;
+    --dim: #5c6b64;
+    --mono: "SF Mono", "DejaVu Sans Mono", "Cascadia Code", Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--mono);
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6vh 5vw 10vh;
+  }
+  .wrap { max-width: 780px; width: 100%; }
+  h1 {
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    letter-spacing: 0.12em;
+    margin: 0 0 0.2em;
+    color: var(--accent);
+  }
+  .tagline {
+    color: var(--dim);
+    margin: 0 0 2.2em;
+    font-size: 0.95rem;
+  }
+  .player-frame {
+    border: 1px solid #1c2620;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(57,255,159,0.06);
+    margin-bottom: 2em;
+  }
+  .cmd {
+    background: #0b0f0d;
+    border: 1px solid #1c2620;
+    border-radius: 6px;
+    padding: 1em 1.2em;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 2em;
+    overflow-x: auto;
+  }
+  .cmd .p { color: var(--dim); }
+  .cmd .c { color: var(--accent); }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(57,255,159,0.35); }
+  a:hover { border-color: var(--accent); }
+  .links {
+    display: flex;
+    gap: 1.6em;
+    font-size: 0.92rem;
+    margin-bottom: 2.5em;
+  }
+  .shots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1em;
+  }
+  .shots img {
+    width: 100%;
+    border: 1px solid #1c2620;
+    border-radius: 4px;
+    display: block;
+  }
+  .caption {
+    color: var(--dim);
+    font-size: 0.78rem;
+    text-align: center;
+    margin: 6px 0 0;
+  }
+  footer {
+    color: var(--dim);
+    font-size: 0.8rem;
+    margin-top: 3em;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>TERMINAL SHOOTER</h1>
+  <p class="tagline">a 16-bit vertical shoot-'em-up for your terminal — pure Python stdlib, curses rendering, synthesized chiptune audio</p>
+
+  <div class="player-frame">
+    <div id="player"></div>
+  </div>
+  <p class="caption">real recorded session — an autoplay bot dodging, firing, and reaching a boss (see README for controls)</p>
+
+  <div class="cmd">
+    <span class="p">$</span> <span class="c">git clone</span> https://github.com/digital-coworker/terminal-shooter-sonnet-5.git<br>
+    <span class="p">$</span> <span class="c">cd</span> terminal-shooter-sonnet-5<br>
+    <span class="p">$</span> <span class="c">python3</span> game.py
+  </div>
+
+  <div class="links">
+    <a href="https://github.com/digital-coworker/terminal-shooter-sonnet-5">Source on GitHub</a>
+    <a href="https://github.com/digital-coworker/terminal-shooter-sonnet-5#readme">Full README</a>
+  </div>
+
+  <div class="shots">
+    <img src="assets/title_dark.png" alt="title screen, dark terminal">
+    <img src="assets/title_light.png" alt="title screen, light terminal">
+    <img src="assets/action_dark.png" alt="gameplay, dark terminal">
+    <img src="assets/boss_dark.png" alt="boss fight, dark terminal">
+  </div>
+  <p class="caption">dark &amp; light terminal themes — same game, same code, zero config</p>
+
+  <footer>MIT licensed · built for the terminal · arrows to move, space to shoot</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.6.3/dist/bundle/asciinema-player.min.js"></script>
+<script>
+  AsciinemaPlayer.create('assets/demo.cast', document.getElementById('player'), {
+    autoPlay: true,
+    loop: true,
+    speed: 1.4,
+    theme: 'monokai',
+    fit: 'width',
+  });
+</script>
+</body>
+</html>

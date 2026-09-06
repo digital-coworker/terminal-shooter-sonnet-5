@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+.mypy_cache/
+*.cast.tmp
+.DS_Store
